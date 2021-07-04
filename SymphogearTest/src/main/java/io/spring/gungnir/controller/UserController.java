@@ -39,8 +39,5 @@ public class UserController {
 		User user = userService.search(userSearchRequest);
 		model.addAttribute("userinfo",user);
 		return"player_search";
-	}
-		
-	
-	
+	}	
 }
