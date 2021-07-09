@@ -23,14 +23,6 @@
 			<input type="submit" value="SEARCH" style="width: 100px"/>
 		</div>
 	</form>
-	<br>
-	<h3>全奏者リスト表示</h3>
-	<form th:action = "@{/user/list}" th:method = "post">
-		<div>
-			<input type = "submit" value = "PLAYER LIST" style = "width: 105px"/>
-		</div>
-	</form>
-
 	<div th:if="${user_info}">
 		<table th:object="${user_info}">
 			<tr>
@@ -61,6 +53,14 @@
 			</tr>
 		</table>
 	</div>
+	<br>
+	<h3>全奏者リスト表示</h3>
+	<form th:action = "@{/user/list}" th:method = "post">
+		<div>
+			<input type = "submit" value = "PLAYER LIST" style = "width: 105px"/>
+		</div>
+	</form>
+
 	<div th:if="${users_info}">
 		<table th:each="users_info:${users_info}" th:object="${users_info}">
 			<tr>
@@ -75,6 +75,20 @@
 				<th class="cell_title">GEAR：</th>
 				<td th:text="*{symphogearName}"></td>
 			</tr>
+			<table>
+				<tr>
+					<td>
+						<form th:action = "@{/user/list}" th:method = "post">
+						<input type = "submit" value = "DELETE" style = "width: 75px"/>
+						</form>
+					</td>
+					<td>
+						<form th:action = "@{/user/search}" th:method = "get">
+							<input type = "submit" value = "UPDATE" style = "width: 75px"/>
+						</form>
+					</td>
+				</tr>
+			</table>
 			<br>
 		</table>
 	</div>
