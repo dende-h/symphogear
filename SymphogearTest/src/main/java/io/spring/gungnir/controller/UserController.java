@@ -71,6 +71,7 @@ public class UserController {
 		if(result.hasErrors()) {
 			return "add_player";
 		}
+		userService.create(userAdd);
 		User user = userService.createCheck(userAdd);
 		model.addAttribute("user_add", user);
 		return "add_comp";		
