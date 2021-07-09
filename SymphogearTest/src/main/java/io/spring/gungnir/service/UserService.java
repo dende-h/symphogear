@@ -1,5 +1,7 @@
 package io.spring.gungnir.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +27,19 @@ public class UserService {
 	public User search(UserSearchRequest userSearchRequest) {
 		return userMapper.search(userSearchRequest);
 	}
+
+	public void create(UserSearchRequest userAdd) {
+		userMapper.create(userAdd);
+	}
+	public User createCheck(UserSearchRequest userAdd) {
+		
+		return userMapper.createCheck(userAdd);
+	}
+	
+	public List<User> getList() {
+		return userMapper.searchList();
+	}
+
+	
 
 }

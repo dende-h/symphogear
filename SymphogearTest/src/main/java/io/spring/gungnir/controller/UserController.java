@@ -1,10 +1,15 @@
 package io.spring.gungnir.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -37,7 +42,38 @@ public class UserController {
 	@RequestMapping(value = "/user/id_search", method = RequestMethod.POST )
 	public String search(@ModelAttribute UserSearchRequest userSearchRequest, Model model){
 		User user = userService.search(userSearchRequest);
-		model.addAttribute("userinfo",user);
+		model.addAttribute("user_info",user);
 		return"player_search";
-	}	
+	
+	}
+	/*
+	 * 全件表示
+	 */
+	@RequestMapping(value = "/user/list", method = RequestMethod.POST)
+	public String getUserList(Model model) {
+		List<User> userList = userService.getList();
+		model.addAttribute("users_info", userList);
+		return "player_search";	
+	}
+	/*ユーザー情報登録画面を表示
+	 * 
+	 */
+	@PostMapping(value = "/user/add")
+	public String displayAdd(Model model) {
+		return "add_player";
+	}
+	
+	/*ユーザー情報登録
+	 * 
+	 */
+	@RequestMapping(value = "user/add_comp", method = RequestMethod.POST )
+	public String create(@Validated @ModelAttribute UserSearchRequest userAdd, BindingResult result, Model model) {
+		if(result.hasErrors()) {
+			return "add_player";
+		}
+		User user = userService.createCheck(userAdd);
+		model.addAttribute("user_add", user);
+		return "add_comp";		
+	}
+	
 }

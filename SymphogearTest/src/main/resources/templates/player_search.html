@@ -6,19 +6,28 @@
 </head>
 <body>
 	<h1>S.O.N.G.所属シンフォギア奏者情報検索</h1>
-	<form th:action="@{/user/id_search}" th:object="${userSearchRequest}"
+	<form th:action = "@{/user/add}" th:method = "post">
+		<div>
+			<input type = "submit" value = "TO SING UP FORM" style = "width: 150px"/>
+		</div>
+	</form>
+	<br>
+	<form th:action="@{/user/id_search}" th:object="${userSearchRequeat}"
 		th:method="post">
 		<div>
-			ID:No.<input type="text" name="id" size="40"/>
+			ID : No.<input type="text" name="id" size="40"/>
 		</div>
-		<br/>
 		<div>
 			<input type="submit" value="SEARCH" style="width: 100px"/>
 		</div>
-		<br/>
 	</form>
-	<div th:if="${userinfo}">
-		<table th:object="${userinfo}">
+	<form th:action = "@{/user/list}" th:method = "post">
+		<div>
+			<input type = "submit" value = "PLAYER LIST" style = "width: 100px"/>
+		</div>
+	</form>
+	<div th:if="${user_info}">
+		<table th:object="${user_info}">
 			<tr>
 				<th class="cell_title">適合者：</th>
 				<td th:text="*{name}"></td>
@@ -27,6 +36,19 @@
 				<th class="cell_title">GEAR：</th>
 				<td th:text="*{symphogearName}"></td>
 			</tr>
+		</table>
+	</div>
+	<div th:if="${users_info}">
+		<table th:each="users_info:${users_info}" th:object="${users_info}">
+			<tr>
+				<th class="cell_title">適合者：</th>
+				<td th:text="*{name}"></td>
+			</tr>
+			<tr>
+				<th class="cell_title">GEAR：</th>
+				<td th:text="*{symphogearName}"></td>
+			</tr>
+			<br>
 		</table>
 	</div>
 </body>

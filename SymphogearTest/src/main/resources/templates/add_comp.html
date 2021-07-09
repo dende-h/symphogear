@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta charset="UTF-8">
+<title>登録完了</title>
+</head>
+<body>
+	<h1>REGISTRATION COMPLETRE!!</h1>
+	<div th:if="${user_add}">
+		<table th:object="${user_add}">
+			<tr>
+				<th class="cell_title">適合者：</th>
+				<td th:text="*{name}"></td>
+			</tr>
+			<tr>
+				<th class="cell_title">GEAR：</th>
+				<td th:text="*{symphogearName}"></td>
+			</tr>
+		</table>
+	</div>
+	<form th:action = "@{/user/search}" th:method = "get">
+		<div>
+			<input type = "submit" value = "TO TOP" style = "width: 100px"/>
+		</div>
+	</form>
+</body>
+</html>
