@@ -7,10 +7,11 @@
 <body>
 	<h1>REGISTRATION COMPLETRE!!</h1>
 	<div th:if="${user_add}">
+		<h3>登録奏者情報</h3>
 		<table th:object="${user_add}">
 			<tr>
-				<th class="cell_title">コード：</th>
-				<td th:text="*{id}"></td>
+				<th class="cell_title">オーダー：</th>
+				<td th:text="第 + *{id} + 奏者"></td>
 			</tr>
 			<tr>
 				<th class="cell_title">適合者：</th>
