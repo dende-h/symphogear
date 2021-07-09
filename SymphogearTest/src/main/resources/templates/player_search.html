@@ -12,22 +12,34 @@
 		</div>
 	</form>
 	<br>
-	<form th:action="@{/user/id_search}" th:object="${userSearchRequeat}"
-		th:method="post">
-		<div>
-			ID : No.<input type="text" name="id" size="40"/>
-		</div>
-		<div>
-			<input type="submit" value="SEARCH" style="width: 100px"/>
-		</div>
-	</form>
-	<form th:action = "@{/user/list}" th:method = "post">
-		<div>
-			<input type = "submit" value = "PLAYER LIST" style = "width: 100px"/>
-		</div>
-	</form>
+	<table>
+		<tr>
+			<form th:action="@{/user/id_search}" th:object="${userSearchRequeat}"
+				th:method="post">
+				<div>
+					コードNo.入力：<input type="text" name="id" size="40"/>
+				</div>
+				<td>
+					<div>
+						<input type="submit" value="SEARCH" style="width: 100px"/>
+					</div>
+				</td>
+			</form>
+			<td>
+				<form th:action = "@{/user/list}" th:method = "post">
+					<div>
+						<input type = "submit" value = "PLAYER LIST" style = "width: 105px"/>
+					</div>
+				</form>
+			</td>
+		</tr>
+	</table>
 	<div th:if="${user_info}">
 		<table th:object="${user_info}">
+			<tr>
+				<th class="cell_title">コード：</th>
+				<td th:text="*{id}"></td>
+			</tr>
 			<tr>
 				<th class="cell_title">適合者：</th>
 				<td th:text="*{name}"></td>
@@ -35,6 +47,20 @@
 			<tr>
 				<th class="cell_title">GEAR：</th>
 				<td th:text="*{symphogearName}"></td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<td>
+					<form th:action = "@{/user/list}" th:method = "post">
+						<input type = "submit" value = "DELETE" style = "width: 75px"/>
+					</form>
+				</td>
+				<td>
+					<form th:action = "@{/user/search}" th:method = "get">
+						<input type = "submit" value = "UPDATE" style = "width: 75px"/>
+					</form>
+				</td>
 			</tr>
 		</table>
 	</div>

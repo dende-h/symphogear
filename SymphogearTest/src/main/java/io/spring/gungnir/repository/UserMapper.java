@@ -35,7 +35,9 @@ public interface UserMapper {
 	@Insert("INSERT INTO symphogear_players(id,name,symphogear_name)"
 			+ "VALUES (#{id},#{name},#{symphogear_name})")
 	void create(UserSearchRequest userAdd);
-	
+	/*
+	 * 追加情報表示
+	 */
 	@Select("SELECT * FROM symphogear_players WHERE id = #{id}")
 	User createCheck(UserSearchRequest userAdd);
 }

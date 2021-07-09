@@ -9,6 +9,10 @@
 	<div th:if="${user_add}">
 		<table th:object="${user_add}">
 			<tr>
+				<th class="cell_title">コード：</th>
+				<td th:text="*{id}"></td>
+			</tr>
+			<tr>
 				<th class="cell_title">適合者：</th>
 				<td th:text="*{name}"></td>
 			</tr>

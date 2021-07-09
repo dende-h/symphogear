@@ -56,7 +56,7 @@ public class UserController {
 		return "player_search";	
 	}
 	/*ユーザー情報登録画面を表示
-	 * 
+	 * 画面遷移のみ
 	 */
 	@PostMapping(value = "/user/add")
 	public String displayAdd(Model model) {
@@ -64,17 +64,23 @@ public class UserController {
 	}
 	
 	/*ユーザー情報登録
-	 * 
+	 * 登録情報の表示
 	 */
 	@RequestMapping(value = "user/add_comp", method = RequestMethod.POST )
 	public String create(@Validated @ModelAttribute UserSearchRequest userAdd, BindingResult result, Model model) {
 		if(result.hasErrors()) {
 			return "add_player";
 		}
-		userService.create(userAdd);
-		User user = userService.createCheck(userAdd);
+		userService.create(userAdd);//追加処理の実行
+		User user = userService.createCheck(userAdd);//追加した情報をセレクトしとってくる
 		model.addAttribute("user_add", user);
 		return "add_comp";		
 	}
-	
+	/*削除
+	 * 
+	 */
+	@PostMapping(value = "user/delete")
+	public String displayDelete(Model model) {
+		return "delete";
+	}
 }
