@@ -2,6 +2,7 @@ package io.spring.gungnir.repository;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -40,4 +41,9 @@ public interface UserMapper {
 	 */
 	@Select("SELECT * FROM symphogear_players WHERE id = #{id}")
 	User createCheck(UserSearchRequest userAdd);
+	/*
+	 * レコード削除
+	 */
+	@Delete("DELETE FROM symphogear_players WHERE id = #{id}")
+	void deleteOne(UserSearchRequest delete);
 }

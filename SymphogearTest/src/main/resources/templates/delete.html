@@ -2,10 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org" >
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>削除完了</title>
 </head>
 <body>
-	<h1>奏者削除画面</h1>
-
+	<h1>奏者情報削除完了！</h1>
+<form th:action = "@{/user/search}" th:method = "get">
+		<div>
+			<input type = "submit" value = "TO TOP" style = "width: 100px"/>
+		</div>
+	</form>
 </body>
 </html>

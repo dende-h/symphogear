@@ -48,5 +48,12 @@ public class UserService {
 		
 		return userMapper.createCheck(userAdd);
 	}
+	/*
+	 * レコード情報削除
+	 */
+	public void deleteOne(UserSearchRequest delete) {
+		userMapper.deleteOne(delete);
+		
+	}
 	
 }

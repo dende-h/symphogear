@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -79,8 +80,9 @@ public class UserController {
 	/*削除
 	 * 
 	 */
-	@PostMapping(value = "user/delete")
-	public String displayDelete(Model model) {
+	@PostMapping(value = "user/delete/id={id}")
+	public String displayDelete(@PathVariable String id, @ModelAttribute UserSearchRequest delete) {
+		userService.deleteOne(delete);
 		return "delete";
 	}
 }
