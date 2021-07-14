@@ -28,6 +28,15 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
+	/*
+	 * ユーザー新規登録画面
+	 */
+	@GetMapping(value = "/user")
+	public String display(Model model) {
+		return"top";
+	}
+	
+	
 	/*ユーザー情報検索画面を表示
 	 * 
 	 */
@@ -54,7 +63,7 @@ public class UserController {
 	public String getUserList(Model model) {
 		List<User> userList = userService.getList();
 		model.addAttribute("users_info", userList);
-		return "player_search";	
+		return "list";	
 	}
 	/*ユーザー情報登録画面を表示
 	 * 画面遷移のみ
