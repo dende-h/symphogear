@@ -9,7 +9,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -86,11 +85,21 @@ public class UserController {
 		model.addAttribute("user_add", user);
 		return "add_comp";		
 	}
+	
+	/*
+	 * 編集画面への繊維
+	 */
+	@PostMapping(value = "user/conf")
+	public String conf() {
+		return "conf_player";
+	}
+	
+	
 	/*削除
 	 * 
 	 */
-	@PostMapping(value = "user/delete/id={id}")
-	public String displayDelete(@PathVariable String id, @ModelAttribute UserSearchRequest delete) {
+	@RequestMapping(value = "user/delete/id={id}")
+	public String displayDelete(@ModelAttribute UserSearchRequest delete) {
 		userService.deleteOne(delete);
 		return "delete";
 	}
