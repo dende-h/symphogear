@@ -44,7 +44,7 @@
 					</form>
 				</td>
 				<td>
-					<form th:action = "@{/user/conf}" th:method = "posst">
+					<form th:action = "@{/user/conf/id={id}(id=*{id})}" th:method = "post" th:object = "${user_info}">
 						<input type = "submit" value = "UPDATE" style = "width: 75px"/>
 					</form>
 				</td>

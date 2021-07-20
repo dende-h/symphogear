@@ -13,7 +13,7 @@ import lombok.Data;
 		/*
 		 * ユーザーID
 		 */
-		private int id;
+		private String id;
 		private String name;
 		private String symphogear_name;
 	}

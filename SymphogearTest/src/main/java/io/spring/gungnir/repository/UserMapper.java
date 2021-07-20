@@ -46,4 +46,9 @@ public interface UserMapper {
 	 */
 	@Delete("DELETE FROM symphogear_players WHERE id = #{id}")
 	void deleteOne(UserSearchRequest delete);
+	
+	@Select("SELECT * FROM symphogear_players WHERE id = #{id]")
+	User editSelect(String id);
+
+	
 }

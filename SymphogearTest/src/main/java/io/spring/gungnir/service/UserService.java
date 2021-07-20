@@ -55,5 +55,17 @@ public class UserService {
 		userMapper.deleteOne(delete);
 		
 	}
+	public User select(UserSearchRequest selectPlayer) {
+		return userMapper.search(selectPlayer);
+	}
+
+		
+	public User editSelect(String id) {
+		return userMapper.editSelect(id);
+	}
 	
+	//public User editSelect(Long id) {
+		//return userMapper.editSelect(id);
+		
+	//}
 }

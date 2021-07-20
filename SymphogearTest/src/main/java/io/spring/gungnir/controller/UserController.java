@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -87,13 +88,14 @@ public class UserController {
 	}
 	
 	/*
-	 * 編集画面への繊維
+	 * 編集画面への遷移
 	 */
-	@PostMapping(value = "user/conf")
-	public String conf() {
-		return "conf_player";
-	}
-	
+	@PostMapping(value = "/user/conf/id={id}}")
+	public String editSelect(@PathVariable("id")String id ,Model model){
+		//User user = userService.editSelect(id);
+		//model.addAttribute("user_select",user);
+		return"conf_player";
+ }
 	
 	/*削除
 	 * 
