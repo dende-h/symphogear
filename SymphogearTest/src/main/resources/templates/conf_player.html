@@ -14,7 +14,7 @@
 	</table>
 	<form th:action = "@{/user/edit/id={id}(id = *{id})}" th:object="${user_select}" th:method = "post">
 		<label>奏者名:<input type="text" th:field="*{name}"></label><br>
-        <label>GEAR:<input type="text" th:field="*{symphogearName}"></label><br>
+        <label>GEAR:<input type="text" th:field="*{symphogear_name}"></label><br>
         <button>EDIT</button>
 	</form>
 		

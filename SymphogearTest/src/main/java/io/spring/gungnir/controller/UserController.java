@@ -96,6 +96,14 @@ public class UserController {
 		model.addAttribute("user_select",user);
 		return "conf_player";
  }
+	@RequestMapping(value = "/user/edit/id={id}", method = RequestMethod.POST)
+	public String update(@PathVariable("id") String id, @ModelAttribute UserSearchRequest edit) {
+		edit.setId(id);
+		userService.update(edit.getId(), edit.getName(), edit.getSymphogear_name());
+		
+		return "edit";
+		
+	}
 	
 	/*削除
 	 * 

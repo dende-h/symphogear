@@ -64,8 +64,10 @@ public class UserService {
 		return userMapper.editSelect(id);
 	}
 	
-	//public User editSelect(Long id) {
-		//return userMapper.editSelect(id);
+	public void update(String id, String name, String symphogear_name) {
+		userMapper.edit(id, name, symphogear_name);
 		
-	//}
+	}
+	
+
 }
