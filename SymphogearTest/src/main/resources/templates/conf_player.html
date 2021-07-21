@@ -6,12 +6,18 @@
 </head>
 <body>
 <h1>奏者情報編集</h1>
-	 <form th:method="post" th:object="${user_select}" th:action="@{/users/conf_comp/id={id}(id=*{id})}">
-        <label>ID(VARCHAR):<input type="text" th:field="*{id}"></label><br>
-        <label>名前(VARCHAR):<input type="text" th:field="*{name}"></label><br>
-        <label>年齢(INT):<input type="text" th:field="*{age}"></label><br>
-        <button>変更</button>
-    </form>
+	<table th:object = "${user_select}">
+		<tr>
+			<th class="cell_title">オーダー：</th>
+			<td th:text="第 + *{id} + 奏者" ></td>
+		</tr>
+	</table>
+	<form th:action = "@{/user/edit/id={id}(id = *{id})}" th:object="${user_select}" th:method = "post">
+		<label>奏者名:<input type="text" th:field="*{name}"></label><br>
+        <label>GEAR:<input type="text" th:field="*{symphogearName}"></label><br>
+        <button>EDIT</button>
+	</form>
+		
 
 </body>
 </html>

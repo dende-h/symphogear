@@ -90,11 +90,11 @@ public class UserController {
 	/*
 	 * 編集画面への遷移
 	 */
-	@PostMapping(value = "/user/conf/id={id}}")
+	@PostMapping(value = "/user/conf/id={id}")
 	public String editSelect(@PathVariable("id")String id ,Model model){
-		//User user = userService.editSelect(id);
-		//model.addAttribute("user_select",user);
-		return"conf_player";
+		User user = userService.editSelect(id);
+		model.addAttribute("user_select",user);
+		return "conf_player";
  }
 	
 	/*削除
