@@ -28,12 +28,12 @@
 		<table>
 			<tr>
 				<td>
-					<form th:action = "@{/user/delete/id={id}(id=*{id})}" th:method = "post">
+					<form th:action = "@{/user/delete/id={id}(id=*{id})}" th:method = "delete">
 					<input type = "submit" value = "DELETE" style = "width: 75px"/>
 					</form>
 				</td>
 				<td>
-					<form th:action = "@{/user/conf/id={id}(id=*{id})}" th:method = "post">
+					<form th:action = "@{/user/conf/id={id}(id=*{id})}" th:method = "put">
 						<input type = "submit" value = "UPDATE" style = "width: 75px"/>
 					</form>
 				</td>
