@@ -64,8 +64,8 @@ public class UserService {
 		return userMapper.editSelect(id);
 	}
 	
-	public void update(String id, String name, String symphogear_name) {
-		userMapper.edit(id, name, symphogear_name);
+	public void update(UserSearchRequest edit) {
+		userMapper.edit(edit);
 		
 	}
 	
