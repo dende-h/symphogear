@@ -5,7 +5,6 @@ import java.util.List;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -55,7 +54,6 @@ public interface UserMapper {
 	@Update("UPDATE symphogear_players "
 			+ "SET name = #{name}, symphogear_name = #{symphogear_name} "
 			+ "WHERE id = #{id}")
-	//void edit(UserSearchRequest edit);
-	void edit(@Param("id")String id, @Param("name")String name, @Param("symphogear_name")String symphogear_name);
+	void edit(UserSearchRequest edit);
 	
 }
